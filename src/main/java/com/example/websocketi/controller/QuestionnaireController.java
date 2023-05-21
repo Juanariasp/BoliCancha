@@ -20,6 +20,7 @@ public class QuestionnaireController {
   }
   
   @PostMapping({"/save"})
+  @CrossOrigin(origins = "http://localhost:3000")
   @ResponseStatus(HttpStatus.CREATED)
   public Questionnaire save(@RequestBody Questionnaire questionnaire) {
     return this.questionnaireService.save(questionnaire);

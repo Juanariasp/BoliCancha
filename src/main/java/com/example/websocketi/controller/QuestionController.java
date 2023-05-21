@@ -21,6 +21,7 @@ public class QuestionController {
   
   @PostMapping({"/save"})
   @ResponseStatus(HttpStatus.CREATED)
+  @CrossOrigin(origins = "http://localhost:3000")
   public Question save(@RequestBody Question question) {
     return this.questionService.save(question);
   }
