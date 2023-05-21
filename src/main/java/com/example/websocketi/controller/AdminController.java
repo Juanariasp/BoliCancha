@@ -27,10 +27,10 @@ public class AdminController {
     return this.adminService.getAdmin(adminId);
   }
   
-  @GetMapping({"ingresar/{user}/{password}"})
+  @GetMapping({"ingresar/{email}/{password}"})
   @CrossOrigin(origins = "http://localhost:3000")
-  public Admin getAdmin(@PathVariable("user") String userAdmin, @PathVariable("password") String userPassword) {
-    return this.adminService.getAdmin(userAdmin, userPassword);
+  public Admin getAdmin(@PathVariable("email") String emailAdmin, @PathVariable("password") String userPassword) {
+    return this.adminService.getAdmin(emailAdmin, userPassword);
   }
   
   @PostMapping({"/save"})
