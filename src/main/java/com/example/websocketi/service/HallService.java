@@ -17,21 +17,25 @@ public class HallService {
     return this.hallRepository.getAll();
   }
   
-  public Optional<Hall> getHall(int hallId) {
+  public Hall getHall(int hallId) {
     return this.hallRepository.getHall(hallId);
+  }
+
+  public Optional<Hall> getHallId(int hallId) {
+    return this.hallRepository.getHallId(hallId);
   }
   
   public Hall save(Hall user) {
     if (user.getIdHall() == null)
       return this.hallRepository.save(user); 
-    Optional<Hall> e = this.hallRepository.getHall(user.getIdHall().intValue());
+    Optional<Hall> e = this.hallRepository.getHallId(user.getIdHall().intValue());
     if (!e.isPresent())
       return this.hallRepository.save(user); 
     return user;
   }
   
   public boolean deleteUser(int hallId) {
-    Boolean aBoolean = getHall(hallId).<Boolean>map(user -> {
+    Boolean aBoolean = getHallId(hallId).<Boolean>map(user -> {
           this.hallRepository.delete(user);
           return Boolean.valueOf(true);
         }).orElse(Boolean.valueOf(false));

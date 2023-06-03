@@ -21,6 +21,8 @@ public class UserController {
   
   @PostMapping({"/save"})
   @ResponseStatus(HttpStatus.CREATED)
+  @CrossOrigin(origins = "http://localhost:3000")
+  
   public User save(@RequestBody User user) {
     return this.userService.save(user);
   }

@@ -17,7 +17,11 @@ public class HallRepository {
     return (List<Hall>)this.hallCrudRepository.findAll();
   }
   
-  public Optional<Hall> getHall(int id) {
+  public Hall getHall(int id) {
+    return this.hallCrudRepository.getHall(Integer.valueOf(id));
+  }
+
+  public Optional<Hall> getHallId(int id) {
     return this.hallCrudRepository.findById(Integer.valueOf(id));
   }
   

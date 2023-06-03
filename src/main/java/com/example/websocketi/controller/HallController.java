@@ -18,9 +18,16 @@ public class HallController {
   public List<Hall> getHalls() {
     return this.hallService.getAll();
   }
+
+  @GetMapping({"/getHall/{idQuess}"})
+  @CrossOrigin(origins = "http://localhost:3000")
+  public Hall getAdmin(@PathVariable("id") int quessId) {
+    return this.hallService.getHall(quessId);
+  }
   
   @PostMapping({"/save"})
   @ResponseStatus(HttpStatus.CREATED)
+  @CrossOrigin(origins = "http://localhost:3000")
   public Hall save(@RequestBody Hall hall) {
     return this.hallService.save(hall);
   }
